@@ -1,7 +1,5 @@
-import { useState } from 'react';
+const doNothing = () => null;
 
-const useField = () => {
-
-};
+export const useField = () => doNothing();
 
 export default useField;

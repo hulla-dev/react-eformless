@@ -1,0 +1,4 @@
+# ignore compiled package
+lib
+# ignore node node_modules
+node_modules

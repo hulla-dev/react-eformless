@@ -16,10 +16,16 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   plugins: [
     'react',
     '@typescript-eslint',
   ],
   rules: {
+    'import/extensions': 'off',
   },
 };
