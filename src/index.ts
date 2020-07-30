@@ -1,7 +1,5 @@
+import useField from './useField';
 
-import useField from './useField'
-
-export {
+export default {
   useField,
-}
-
+};

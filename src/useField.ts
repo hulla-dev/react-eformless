@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const useField = () => {
 
-}
+};
 
-export default useField
+export default useField;
