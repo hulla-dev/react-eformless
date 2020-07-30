@@ -1,0 +1,28 @@
+{
+  "name": "react-eformless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelhulla/react-eformless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samuelhulla/react-eformless/issues"
+  },
+  "homepage": "https://github.com/samuelhulla/react-eformless#readme",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.43",
+    "react": "^16.13.1"
+  }
+}
