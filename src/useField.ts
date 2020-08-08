@@ -1,43 +1,18 @@
-import { useState } from 'react';
-import { FieldType, InputType, InputHandlerFunction } from 'types/FieldType';
-import { checkErrors } from 'util/errorChecking';
-import { undefinedOnEmpty } from 'util/typeguards';
+import useInput from './useInput';
+import useToggle from './useToggle';
+import {
+  InputType, ToggleType, useFieldFunctionConfig, useFieldFunction,
+} from './types/FieldType';
 
-const useField = (
-  input: InputType,
-  ...errorFunctions: Array<(...args: unknown[]) => unknown>
-): [FieldType, InputHandlerFunction, InputHandlerFunction] => {
-  const initialState: FieldType = {
-    value: input,
-    wasChanged: false,
-    errors: undefinedOnEmpty([...checkErrors(input, errorFunctions)]),
-    wasBlurred: false,
-  };
-  const [field, setField] = useState<FieldType>(initialState);
-
-  const handleChange: InputHandlerFunction = (event) => {
-    const { value, name } = event.target;
-    const errors = checkErrors(value, errorFunctions, name);
-    setField((prevState) => ({
-      ...prevState,
-      value,
-      errors: undefinedOnEmpty([...prevState.errors || [], ...errors]),
-      wasChanged: true,
-    }));
-  };
-
-  const handleBlur: InputHandlerFunction = (event) => {
-    const { value, name } = event.target;
-    const errors = checkErrors(value, errorFunctions, name);
-    setField((prevState) => ({
-      ...prevState,
-      value,
-      errors: undefinedOnEmpty([...prevState.errors || [], ...errors]),
-      wasBlurred: true,
-    }));
-  };
-
-  return [field, handleChange, handleBlur];
-};
+// in this case we want to allow conditional usage of hooks
+/* eslint-disable react-hooks/rules-of-hooks */
+const useField: useFieldFunction = (
+  input: InputType | ToggleType,
+  config?: useFieldFunctionConfig,
+) => (
+  typeof input === 'boolean'
+    ? useToggle(input, config)
+    : useInput(input, config)
+);
 
 export default useField;

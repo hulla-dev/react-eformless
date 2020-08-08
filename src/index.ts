@@ -1,5 +1,5 @@
-import useField from './useField';
+import useInput from './useInput';
 
 export default {
-  useField,
+  useInput,
 };

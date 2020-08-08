@@ -1,17 +1,17 @@
-import type { InputType, ErrorType } from 'types/FieldType';
-import { notNull } from './typeguards';
+import type { InputType, ErrorType, ToggleType } from './types/FieldType';
+import { notNull } from './util/typeguards';
 
 export const invokeCheckFunction = (
-  value: InputType,
+  value: InputType | ToggleType,
   callback: (...args: unknown[]) => unknown,
   formName?: string,
 ): ErrorType | null => {
   try {
-    callback();
+    callback(value);
     return null;
   } catch (e) {
     const newError: ErrorType = {
-      name: callback.name, // bug with typescript in vscode: https://github.com/microsoft/vscode/issues/103788
+      name: callback.name,
       message: e.message,
       value,
       arguments: [...callback.arguments],
@@ -22,7 +22,7 @@ export const invokeCheckFunction = (
 };
 
 export const checkErrors = (
-  value: InputType,
+  value: InputType | ToggleType,
   callbackFunctions: Array<(...args: unknown[]) => unknown>,
   formName?: string,
 ): ErrorType[] => {
