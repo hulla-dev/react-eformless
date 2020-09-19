@@ -1,4 +1,4 @@
-import type { InputType, ErrorType, ToggleType } from './types/FieldType';
+import type { InputType, ErrorType, ToggleType } from './@types/FieldType';
 import { notNull } from './util/typeguards';
 
 export const invokeCheckFunction = (

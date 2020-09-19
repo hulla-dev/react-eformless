@@ -7,7 +7,7 @@ import {
   InputHandlerFunction,
   useFieldFunction,
   useFieldFunctionConfig,
-} from './types/FieldType';
+} from './@types/FieldType';
 
 const useInput: useFieldFunction = (
   input: InputType,

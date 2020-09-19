@@ -3,7 +3,7 @@ import { checkErrors } from './errorChecking';
 import { undefinedOnEmpty } from './util/typeguards';
 import {
   FieldType, ToggleHandlerFunction, useFieldFunction, useFieldFunctionConfig,
-} from './types/FieldType';
+} from './@types/FieldType';
 
 const useToggle: useFieldFunction = (
   isChecked: boolean,
