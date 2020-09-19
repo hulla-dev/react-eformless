@@ -1,4 +1,4 @@
 # ignore compiled package
-lib
+dist
 # ignore node node_modules
 node_modules
